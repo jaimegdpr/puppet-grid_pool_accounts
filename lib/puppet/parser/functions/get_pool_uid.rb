@@ -10,14 +10,15 @@ ENDOFDOC
     require 'rubygems'
     require 'etc'
     vo = arguments[0]
-
     filename = arguments[1]
+
     uids = Array.new()
     File.open(filename).each_line do | line |
     tmp = line.split(":")
     if tmp[4] == vo
-      if tmp[5] != 'pilot'
-      uids.push(tmp[0])
+#      if tmp[5] != 'pilot'
+      if tmp[5] == ""
+          uids.push(tmp[0])
       end
     end
     end

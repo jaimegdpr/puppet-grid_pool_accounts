@@ -12,11 +12,18 @@ ENDOFDOC
     vo = arguments[0]
     filename = arguments[1]
     gid = ''
+
     File.open(filename).each_line do | line |
     tmp = line.split(":")
       if tmp[4] == vo
-        if tmp[5] != 'pilot'
-          gid = tmp[2]   # primary group id
+#        if tmp[5] != 'pilot'
+        if tmp[5] == ''
+           if tmp[2].include? ","
+              gid = tmp[2].split(",")[0]   # primary group id
+#             gid = tmp[2][/^(\d+?),/, 1]   # primary group id
+           else
+              gid = tmp[2]
+           end
         end
 
       end
