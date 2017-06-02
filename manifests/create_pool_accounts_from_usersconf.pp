@@ -11,10 +11,10 @@ define grid_pool_accounts::create_pool_accounts_from_usersconf (
 
   # These custom functions parse file defined by $users_conf.
   # Accounts without type 
-  $users         = get_pool_users($vo, $users_conf)
-  $uids          = get_pool_uid($vo, $users_conf)
-  $primary_group = get_pool_gid($vo, $users_conf)
-  $primary_gname = get_pool_gname($vo, $users_conf)
+  $users         = grid_pool_accounts::get_pool_users($vo, $users_conf)
+  $uids          = grid_pool_accounts::get_pool_uid($vo, $users_conf)
+  $primary_group = grid_pool_accounts::get_pool_gid($vo, $users_conf)
+  $primary_gname = grid_pool_accounts::get_pool_gname($vo, $users_conf)
 
   $uid_size  = size($uids)
   $user_size = size($users)
@@ -45,7 +45,7 @@ define grid_pool_accounts::create_pool_accounts_from_usersconf (
   }
 
   # Get account types
-  $types = get_types_for_vo($vo, $users_conf)
+  $types = grid_pool_accounts::get_types_for_vo($vo, $users_conf)
 
   # Iterate over all account types
   $types.each |String $type| {
@@ -54,10 +54,10 @@ define grid_pool_accounts::create_pool_accounts_from_usersconf (
 
       # These custom functions parse file defined by $users_conf.
       # Accounts with type
-      $pilot_users   = get_pilot_users($vo, $users_conf, $type)
-      $pilot_uid     = get_pilot_uid($vo, $users_conf, $type)
-      $pilot_gid     = get_pilot_gid($vo, $users_conf, $type)
-      $pilot_gname   = get_pilot_gname($vo, $users_conf, $type)
+      $pilot_users   = grid_pool_accounts::get_pilot_users($vo, $users_conf, $type)
+      $pilot_uid     = grid_pool_accounts::get_pilot_uid($vo, $users_conf, $type)
+      $pilot_gid     = grid_pool_accounts::get_pilot_gid($vo, $users_conf, $type)
+      $pilot_gname   = grid_pool_accounts::get_pilot_gname($vo, $users_conf, $type)
 
       $pilot_users_size = size($pilot_users)
       $pilot_uid_size = size($pilot_uid)
