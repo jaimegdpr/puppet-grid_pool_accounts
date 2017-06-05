@@ -35,7 +35,7 @@ define grid_pool_accounts::create_pool_accounts_from_usersconf (
       }
       
       #Create accounts
-      $accounts = create_account_hash($users, $uids)
+      $accounts = grid_pool_accounts::create_account_hash($users, $uids)
       create_resources('grid_pool_accounts::pool_account', $accounts, $defaults)
 
   } else {
@@ -85,7 +85,7 @@ define grid_pool_accounts::create_pool_accounts_from_usersconf (
           }
 
           # Create account
-          $pilot_accounts = create_account_hash($pilot_users, $pilot_uid)
+          $pilot_accounts = grid_pool_accounts::create_account_hash($pilot_users, $pilot_uid)
           create_resources('grid_pool_accounts::pool_account', $pilot_accounts, $defaults_pilot)
 
        } else {
