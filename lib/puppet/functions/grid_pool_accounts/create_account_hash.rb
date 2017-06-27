@@ -8,12 +8,12 @@
 
 Puppet::Functions.create_function(:'grid_pool_accounts::create_account_hash') do
 
-    dispatch :create_account_hash do
+    dispatch :create_account_hash_method do
         param 'Array', :usernames
         param 'Array', :uids
     end
 
-    def create_account_hash
+    def create_account_hash_method(usernames, uids)
 #        # Check that both args are arrays. (NOT NECCESARY)
 #        unless usernames.is_a?(Array) and uids.is_a?(Array)
 #          raise(Puppet::ParseError, 'create_account_hash(): Requires two arrays to work with')

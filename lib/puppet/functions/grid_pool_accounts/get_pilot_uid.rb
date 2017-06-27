@@ -6,6 +6,7 @@ Puppet::Functions.create_function(:'grid_pool_accounts::get_pilot_uid') do
         param 'String', :vo
         param 'String', :filename
         param 'String', :type
+        return_type 'Array'
     end
 
     def get_pilot_uid(vo, filename, type)

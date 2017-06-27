@@ -5,6 +5,7 @@ Puppet::Functions.create_function(:'grid_pool_accounts::get_pool_users') do
     dispatch :get_pool_users do
         param 'String', :vo
         param 'String', :filename
+        return_type 'Array'
     end
 
     def get_pool_users(vo, filename)
